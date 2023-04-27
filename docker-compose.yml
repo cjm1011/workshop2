@@ -2,7 +2,7 @@ version: "3.8"
 services:
   web:
     build: ./app
-    image: 320835626188.dkr.ecr.us-east-2.amazonaws.com/workshop2:workshop2_web
+    image: 177861077668.dkr.ecr.us-east-2.amazonaws.com/workshop2:workshop2_web
     command: gunicorn nc_tutorials.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./app/:/usr/src/app/
@@ -13,14 +13,14 @@ services:
       - DB_NAME=nc_tutorials_db
       - DB_USER=postgres
       - DB_PASSWORD=admin123
-      - DB_HOST=nctutorials.cu6p5rmjwns6.us-east-2.rds.amazonaws.com
+      - DB_HOST=nctutorials.cgcftbajtach.us-east-2.rds.amazonaws.com
       - DB_PORT=5432
       - DATABASE=postgres
-      - VIRTUAL_HOST=ec2-3-144-29-188.us-east-2.compute.amazonaws.com
+      - VIRTUAL_HOST=ec2-3-130-183-194.us-east-2.compute.amazonaws.com
       - VIRTUAL_PORT=8000
   nginx:
     build: ./nginx
-    image: 320835626188.dkr.ecr.us-east-2.amazonaws.com/workshop2:workshop2_nginx
+    image: 177861077668.dkr.ecr.us-east-2.amazonaws.com/workshop2:workshop2_nginx
     volumes:
       - static_volume:/usr/src/app/static
     ports:
